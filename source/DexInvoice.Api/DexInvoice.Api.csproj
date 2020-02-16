@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DexInvoice.Abstractions\DexInvoice.Abstractions.csproj" />
+    <ProjectReference Include="..\DexInvoice.Application\DexInvoice.Application.csproj" />
+    <ProjectReference Include="..\DexInvoice.Contract\DexInvoice.Contract.csproj" />
+    <ProjectReference Include="..\DexInvoice.Model\DexInvoice.Model.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+  
+</Project>
