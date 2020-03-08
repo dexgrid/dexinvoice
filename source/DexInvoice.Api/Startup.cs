@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DexInvoice.Abstractions;
+using DexInvoice.Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +29,9 @@ namespace DexInvoice.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddHttpClient<IHtmlToPdfClient, HtmlToPdfClient>(o => o.BaseAddress = new Uri(Configuration["HtmlToPdfService"]));
+            services.AddScoped<IInvoiceService, InvoiceService>();
+            services.AddScoped<ITemplateProvider, TemplateProvider>();
 
             services.AddSwaggerGen(c =>
             {
